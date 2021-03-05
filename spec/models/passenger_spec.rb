@@ -39,5 +39,36 @@ RSpec.describe Passenger, type: :model do
 
       expect(Passenger.adult_average_age.round).to eq(338)
     end
+
+    it "#all_adults" do
+      flight = Flight.create!(
+        number: "1737",
+        date: "10/20/20",
+        time: "10:00 AM",
+        departure_city: "Tampa",
+        arrival_city: "Las Vegas"
+      )
+      passenger1 = flight.passengers.create(
+        name: "Jake The Dog",
+        age: 900
+      )
+      passenger2 = flight.passengers.create(
+        name: "Fin",
+        age: 14
+      )
+      passenger3 = flight.passengers.create(
+        name: "Ice King",
+        age: 70
+      )
+      passenger4 = flight.passengers.create(
+        name: "Lemondrop guy",
+        age: 45
+      )
+      expected = Passenger.all_adults
+      expect(expected).to include(passenger1)
+      expect(expected).to include(passenger3)
+      expect(expected).to include(passenger4)
+      expect(expected).not_to include(passenger2)
+    end
   end
 end

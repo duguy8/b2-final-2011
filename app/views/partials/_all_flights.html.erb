@@ -3,7 +3,8 @@
     <% flights.each do |flight| %>
       <li>Flight Number: <%= flight.number %>,
       Departure City: <%= flight.departure_city %>,
-      Arrival City: <%= flight.arrival_city %></li>
+      Arrival City: <%= flight.arrival_city %>,
+      Number of Passengers: <%= flight.passenger_count %></li>
     <% end %>
   </ul>
 </section>
