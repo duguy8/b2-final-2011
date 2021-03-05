@@ -1,0 +1,11 @@
+<h1>Flight Number: <%= @flight.number %></h1>
+<h4>Flight Date: <%= @flight.date %><h4>
+<h4>Flight Time: <%= @flight.time %><h4>
+<h4>Departure City: <%= @flight.departure_city %><h4>
+<h4>Arrival City: <%= @flight.arrival_city %><h4>
+
+<%= render partial: "partials/flight_passengers",
+locals: { passengers: @flight.passengers } %>
+
+<h4>Average Age of Adult Passengers:
+<%= @flight.passengers.adult_average_age.round %><h4>

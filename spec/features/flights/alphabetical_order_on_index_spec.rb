@@ -5,6 +5,7 @@ RSpec.describe "When I visit the flights index page" do
     @flight1 = Flight.create!(
       number: "1737",
       date: "10/20/20",
+      time: "10:00 AM",
       departure_city: "Tampa",
       arrival_city: "Las Vegas"
     )
@@ -12,6 +13,7 @@ RSpec.describe "When I visit the flights index page" do
     @flight2 = Flight.create!(
       number: "2345",
       date: "01/02/21",
+      time: "10:00 AM",
       departure_city: "Miami",
       arrival_city: "London"
     )
@@ -19,6 +21,7 @@ RSpec.describe "When I visit the flights index page" do
     @flight3 = Flight.create!(
       number: "1012",
       date: "05/10/20",
+      time: "10:00 AM",
       departure_city: "Denver",
       arrival_city: "Reno"
     )
