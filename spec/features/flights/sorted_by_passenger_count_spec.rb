@@ -59,12 +59,41 @@ RSpec.describe "When I visit the flight index page" do
       name: "Lemondrop guy",
       age: 45
     )
+    @flight4 = Flight.create!(
+      number: "1111",
+      date: "05/10/19",
+      time: "2:00 AM",
+      departure_city: "Tokyo",
+      arrival_city: "New York"
+    )
+    @passenger10 = @flight4.passengers.create(
+      name: "Jake The Dog",
+      age: 900
+    )
+    @passenger11 = @flight4.passengers.create(
+      name: "Fin",
+      age: 14
+    )
+    @passenger12 = @flight4.passengers.create(
+      name: "Ice King",
+      age: 70
+    )
+    @passenger13 = @flight4.passengers.create(
+      name: "Lemondrop guy",
+      age: 45
+    )
+    @passenger14 = @flight4.passengers.create(
+      name: "Lemondrop guy",
+      age: 45
+    )
   end
 
   describe "The flights are ordered" do
     it "By the number of passengers on the flight, most to least" do
       visit flights_path
 
+      expect(@flight4.number).to appear_before(@flight2.number)
+      expect(@flight4.number).to appear_before(@flight3.number)
       expect(@flight3.number).to appear_before(@flight2.number)
       expect(@flight2.number).to appear_before(@flight1.number)
       expect(@flight3.number).to appear_before(@flight1.number)
