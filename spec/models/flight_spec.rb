@@ -49,9 +49,9 @@ RSpec.describe Flight, type: :model do
         name: "Jake The Dog",
         age: 900
       )
-      expect(Flight.alphabetical_order.first).to eq(flight3)
-      expect(Flight.alphabetical_order.second).to eq(flight2)
-      expect(Flight.alphabetical_order.third).to eq(flight1)
+      expect(Flight.alphabetical_order_by_count.first).to eq(flight3)
+      expect(Flight.alphabetical_order_by_count.second).to eq(flight2)
+      expect(Flight.alphabetical_order_by_count.third).to eq(flight1)
     end
   end
 end

@@ -7,7 +7,7 @@ class Flight < ApplicationRecord
   has_many :passenger_flights
   has_many :passengers, through: :passenger_flights
 
-  def self.alphabetical_order
+  def self.alphabetical_order_by_count
     joins(:passengers)
     .select('flights.*, count(passengers.*) AS passenger_count')
     .group('flights.id')
