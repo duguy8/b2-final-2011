@@ -23,7 +23,10 @@ RSpec.describe Flight, type: :model do
         departure_city: "Tampa",
         arrival_city: "Las Vegas"
       )
-
+      passenger1 = flight1.passengers.create(
+        name: "Jake The Dog",
+        age: 900
+      )
       flight2 = Flight.create!(
         number: "2345",
         date: "01/02/21",
@@ -31,7 +34,10 @@ RSpec.describe Flight, type: :model do
         departure_city: "Miami",
         arrival_city: "London"
       )
-
+      passenger2 = flight2.passengers.create(
+        name: "Jake The Dog",
+        age: 900
+      )
       flight3 = Flight.create!(
         number: "1012",
         date: "05/10/20",
@@ -39,7 +45,10 @@ RSpec.describe Flight, type: :model do
         departure_city: "Denver",
         arrival_city: "Reno"
       )
-
+      passenger3 = flight3.passengers.create(
+        name: "Jake The Dog",
+        age: 900
+      )
       expect(Flight.alphabetical_order.first).to eq(flight3)
       expect(Flight.alphabetical_order.second).to eq(flight2)
       expect(Flight.alphabetical_order.third).to eq(flight1)
