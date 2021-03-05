@@ -38,7 +38,7 @@ RSpec.describe "When I visit the flights index page" do
       expect(page).to have_content(@flight2.arrival_city)
       expect(page).to have_content(@flight3.arrival_city)
     end
-    
+
     it "I see they are listed in alphabetical order by departure city" do
       visit flights_path
 
