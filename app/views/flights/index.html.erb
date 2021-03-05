@@ -1,2 +1,3 @@
 <h1>All Flights</h1>
-<%= render partial: "flights/partials/all_flights", locals: { flights: @flights } %>
+<%= render partial: "flights/partials/all_flights",
+locals: { flights: @flights.alphabetical_order } %>
