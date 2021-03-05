@@ -100,13 +100,3 @@ RSpec.describe "When I visit the flight index page" do
     end
   end
 end
-
-# Extension Story, Flights sorted by passenger count
-# ​
-# As a visitor
-# When I visit the Flight index
-# Then I see that flights are ordered by the number
-# of passengers on the flight from most passengers to least
-# ​
-# (Note: you should not make a separate query for each
-#   flight to calculate the number of passengers)
