@@ -38,13 +38,15 @@ RSpec.describe "When I visit a flights show page" do
       expect(page).to have_content(@flight.arrival_city)
     end
 
-    it "Shows names of all passengers on flight" do
+    it "Shows names of all adult passengers on flight" do
       visit flight_path(@flight)
+      # save_and_open_page
 
       within(".passengers") do
         expect(page).to have_content(@passenger1.name)
-        expect(page).to have_content(@passenger2.name)
+        expect(page).not_to have_content(@passenger2.name)
         expect(page).to have_content(@passenger3.name)
+        expect(page).to have_content(@passenger4.name)
       end
     end
 

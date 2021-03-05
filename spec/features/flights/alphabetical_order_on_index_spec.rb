@@ -40,7 +40,6 @@ RSpec.describe "When I visit the flights index page" do
   describe "I see each flight in the system" do
     it "I see their number, departure & arrival city" do
       visit flights_path
-      save_and_open_page
 
       expect(page).to have_content(@flight1.number)
       expect(page).to have_content(@flight2.number)

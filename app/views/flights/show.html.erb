@@ -5,7 +5,7 @@
 <h4>Arrival City: <%= @flight.arrival_city %><h4>
 
 <%= render partial: "partials/flight_passengers",
-locals: { passengers: @flight.passengers,
+locals: { passengers: @flight.passengers.all_adults,
 flight: @flight } %>
 
 <h4>Average Age of Adult Passengers:

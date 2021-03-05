@@ -5,4 +5,6 @@ class Passenger < ApplicationRecord
   has_many :flights, through: :passenger_flights
   scope :adult_average_age, -> {
   where('age >= ?', 18).average(:age) }
+  scope :all_adults, -> {
+  where('age >= ?', 18) }
 end

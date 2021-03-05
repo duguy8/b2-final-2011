@@ -27,15 +27,11 @@ RSpec.describe "As a visitor on a flights show page" do
     )
   end
 
-  describe "Theres a button to remove each passenger from the flight" do
+  describe "Theres a button to remove each adult passenger from the flight" do
     it "I see a button next to each passenger" do
       visit flight_path(@flight)
 
       within("#passenger-#{@passenger1.id}") do
-        expect(page).to have_button("Remove Passenger")
-      end
-
-      within("#passenger-#{@passenger2.id}") do
         expect(page).to have_button("Remove Passenger")
       end
 
@@ -67,7 +63,7 @@ RSpec.describe "As a visitor on a flights show page" do
 
       visit flight_path(@flight)
 
-      expect(page).to have_content(@passenger2.name)
+      expect(page).not_to have_content(@passenger2.name)
       expect(page).to have_content(@passenger3.name)
       expect(page).to have_content(@passenger4.name)
       expect(page).not_to have_content(@passenger1.name)
