@@ -47,9 +47,30 @@ RSpec.describe "As a visitor on a flights show page" do
         expect(page).to have_button("Remove Passenger")
       end
     end
-    
-    it "Redirects me to the flights show page"
-    it "No longer shows the passenger"
+
+    it "Redirects me to the flights show page" do
+      visit flight_path(@flight)
+
+      within("#passenger-#{@passenger1.id}") do
+        click_button("Remove Passenger")
+      end
+
+      expect(current_path).to eq(flight_path(@flight))
+    end
+
+    it "No longer shows the passenger" do
+      visit flight_path(@flight)
+
+      within("#passenger-#{@passenger1.id}") do
+        click_button("Remove Passenger")
+      end
+
+      expect(page).to have_content(@passenger2.name)
+      expect(page).to have_content(@passenger3.name)
+      expect(page).to have_content(@passenger4.name)
+      expect(page).not_to have_content(@passenger1.name)
+    end
+
     it "Shows flash message that passenger was removed"
   end
 end
