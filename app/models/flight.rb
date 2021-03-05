@@ -5,4 +5,5 @@ class Flight < ApplicationRecord
   validates :arrival_city, presence: true
   has_many :passenger_flights
   has_many :passengers, through: :passenger_flights
+  scope :alphabetical_order, -> { order(:departure_city) }
 end

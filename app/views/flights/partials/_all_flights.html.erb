@@ -1,0 +1,9 @@
+<section class="all_flights">
+  <ul>
+    <% flights.alphabetical_order do |flight| %>
+      <li>Flight Number: <%= flight.number %>
+      Departure City: <%= flight.departure_city %>
+      Arrival City: <%= flight.arrival_city %></li>
+    <% end %>
+  </ul>
+</section>

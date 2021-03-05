@@ -12,4 +12,33 @@ RSpec.describe Flight, type: :model do
     it { should have_many :passenger_flights }
     it { should have_many(:passengers).through(:passenger_flights) }
   end
+
+  describe "Class Methods" do
+    it "#alphabetical_order" do
+      flight1 = Flight.create!(
+        number: "1737",
+        date: "10/20/20",
+        departure_city: "Tampa",
+        arrival_city: "Las Vegas"
+      )
+
+      flight2 = Flight.create!(
+        number: "2345",
+        date: "01/02/21",
+        departure_city: "Miami",
+        arrival_city: "London"
+      )
+
+      flight3 = Flight.create!(
+        number: "1012",
+        date: "05/10/20",
+        departure_city: "Denver",
+        arrival_city: "Reno"
+      )
+
+      expect(Flight.alphabetical_order.first).to eq(flight3)
+      expect(Flight.alphabetical_order.second).to eq(flight2)
+      expect(Flight.alphabetical_order.third).to eq(flight1)
+    end
+  end
 end
