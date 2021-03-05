@@ -65,22 +65,22 @@ RSpec.describe "As a visitor on a flights show page" do
         click_button("Remove Passenger")
       end
 
+      visit flight_path(@flight)
+
       expect(page).to have_content(@passenger2.name)
       expect(page).to have_content(@passenger3.name)
       expect(page).to have_content(@passenger4.name)
       expect(page).not_to have_content(@passenger1.name)
     end
 
-    it "Shows flash message that passenger was removed"
+    it "Shows flash message that passenger was removed" do
+      visit flight_path(@flight)
+
+      within("#passenger-#{@passenger1.id}") do
+        click_button("Remove Passenger")
+      end
+
+      expect(page).to have_content("#{@passenger1.name} Removed from Flight")
+    end
   end
 end
-
-
-# User Story 3, Remove a Passenger from a Flight
-# ​
-# As a visitor
-# When I visit a flight's show page
-# Next to each passengers name I see a link or button to remove that passenger from that flight
-# When I click on that link or button
-# I'm returned to the flight's show page
-# And I no longer see that passenger listed

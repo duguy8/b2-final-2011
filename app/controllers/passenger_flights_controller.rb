@@ -8,6 +8,7 @@ class PassengerFlightsController < ApplicationController
       passenger_id: @passenger.id
     )
     @passenger_flight.destroy
+    flash[:notice] = "#{@passenger.name} Removed from Flight"
     redirect_to flight_path(@flight)
   end
 
