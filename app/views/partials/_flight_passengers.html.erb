@@ -2,7 +2,9 @@
 <h3>Passengers: </h3>
   <ul>
     <% passengers.each do |passenger| %>
-      <li><%= passenger.name %></li>
+      <div id="passenger-<%= passenger.id %>">
+        <li><%= passenger.name %></li>
+      </div>
     <% end %>
   </ul>
 </section>
